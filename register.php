@@ -122,14 +122,12 @@
                                 <!-- END Register Form -->
                                 <!-- Start register PHP -->
                                 <?php
-                                echo "<script>alert('opslaan');</script>";
                                     if (isset($_POST['opslaan'])) {
-                                        echo "<script>alert('opslaan');</script>";
                                         # Database definen
                                         $School = new School();
                                         # Nieuwe user inserten
                                         if ($_POST['wachtwoord'] == $_POST['wachtwoord-bevestig']) {
-                                            echo $School->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
+                                            $School->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
                                     
                                         } else {
                                             echo "<script>nietGelijk();</script>";
@@ -149,13 +147,9 @@
                 <!-- END Page Content -->
             </main>
             <!-- END Main Container -->
-
-            <!-- END Main Container -->
         </div>
-
         <!-- Nog een klein stukkie js -->
         <script>
-
             function nietGelijk() {
                 Swal.fire(
                     'Er is iets fout gegaan!',
