@@ -12,6 +12,8 @@
         $School->includeHead();
     ?>
     <body>
+        <!-- Include SweetAlert -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <!-- Page Container -->
         <div id="page-container">
             <!-- Main Container -->
@@ -49,7 +51,7 @@
                                                         <div class="col-lg-6 offset-lg-1">
                                                             <div class="form-group">
                                                                 <label for="email">E-Mail Adres</label>
-                                                                <input type="text" class="form-control form-control-alt" id="email" name="email">
+                                                                <input type="text" class="form-control form-control-alt" id="email" name="email" required>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="gebruikersnaam">Gebruikersnaam*</label>
@@ -104,7 +106,7 @@
                                                 <div class="block-content">
                                                     <div class="form-group row">
                                                         <div class="col-lg-6 offset-lg-5">
-                                                            <button type="submit" class="btn btn-primary mb-1" name="submit">
+                                                            <button type="submit" class="btn btn-primary mb-1" name="opslaan" id="opslaan">
                                                                 <i class="fa fa-check mr-1"></i> Opslaan
                                                             </button>
                                                             <button type="reset" class="btn btn-alt-primary mb-1">
@@ -118,15 +120,21 @@
                                     </div>
                                 </div>
                                 <!-- END Register Form -->
-
                                 <!-- Start register PHP -->
                                 <?php
-                                    if (isset($_POST['submit'])) {
+                                echo "<script>alert('opslaan');</script>";
+                                    if (isset($_POST['opslaan'])) {
+                                        echo "<script>alert('opslaan');</script>";
                                         # Database definen
-                                        $school = new School();
+                                        $School = new School();
                                         # Nieuwe user inserten
-                                        $school->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
-                                    }  
+                                        if ($_POST['wachtwoord'] == $_POST['wachtwoord-bevestig']) {
+                                            echo $School->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
+                                    
+                                        } else {
+                                            echo "<script>nietGelijk();</script>";
+                                        }
+                                    }
                                 ?>
                                 <!-- End register PHP -->
                                 <div class="text-center">
@@ -144,6 +152,27 @@
 
             <!-- END Main Container -->
         </div>
+
+        <!-- Nog een klein stukkie js -->
+        <script>
+
+            function nietGelijk() {
+                Swal.fire(
+                    'Er is iets fout gegaan!',
+                    'Het wachtwoord was niet gelijk aan het bevestigde wachtwoord!',
+                    'warning'
+                );
+            }
+            // Zorgen dat form submits niet opnieuw gebeuren indien je refreshed. Niet dat er nu al een form inzit ofzo maarja altijd handig.
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+
+            // Gekke jquery van de template
+            jQuery(function () {
+                Dashmix.helpers('sparkline');
+            });
+        </script>
         <!-- END Page Container -->
         <!-- Page JS Plugins -->
         <script src="https://school.tom974.dev/assets/js/dashmix.core.min.js"></script>
