@@ -19,12 +19,9 @@ class School {
     public function execute($sql, $params = "", $type = "") {
         try {
             try {
-                #Jaja iknow t staat hardcoded maar boeie, tis niet iets voor in de productie. 
-                $user = "tom";
-                $pass = "0659";
-                $db = "school";
-                $host = "localhost";
-                $db = new PDO('mysql:host='.$host.';dbname='.$db.'', $user, $pass);
+                include __DIR__.'/begin.php';
+                # PHP PDO Connectie maken.
+                $db = new PDO('mysql:host='.$host.';dbname='.$db, $user, $pass);
             } catch (PDOException $e) {
                 print "Error!: " . $e->getMessage() . "<br/>";
                 die();
