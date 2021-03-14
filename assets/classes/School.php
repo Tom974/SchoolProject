@@ -161,6 +161,8 @@ class School {
         } else {
             # Anders lekker doorgaan
             $this->execute($sql, [$email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum]);
+            echo "Execute is gedaan!";
+            echo '<xmp>Output $sql File: '.end(explode('/',__FILE__)).' Line '.__LINE__.': '. print_r( $sql, true ) .'</xmp>'; /*DEBUG:*/
             // return "<script>Swal.fire({
                 // icon: 'success',
                 // title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
