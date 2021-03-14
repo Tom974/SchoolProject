@@ -127,6 +127,15 @@
                                         $School = new School();
                                         # Nieuwe user inserten
                                         if ($_POST['wachtwoord'] == $_POST['wachtwoord-bevestig']) {
+                                            # tyfus debug.
+                                            echo $_POST['email'];
+                                            echo $_POST['gebruikersnaam'];
+                                            echo password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT);
+                                            echo $_POST['naam'];
+                                            echo $_POST['achternaam'];
+                                            echo $_POST['telefoonnummer'];
+                                            echo $_POST['bsn-nummer'];
+                                            echo $_POST['geboortedatum'];
                                             $School->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
                                     
                                         } else {
