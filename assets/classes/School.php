@@ -146,27 +146,27 @@ class School {
     public function insertNewUser($email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum){
         # Query aanmaken
         $sql = "INSERT INTO `gebruikers` (email, gebruikersnaam, wachtwoord, naam, achternaam, telefoonnummer, bsn-nummer, geboortedatum) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-        # Kleine extra check of params wel ingevuld is.
-        if (!empty($params)) {
-            $exists = $this->execute("SELECT gebruikersnaam, telefoonnummer FROM `gebruikers` WHERE `gebruikersnaam` = ?", [$gebruikersnaam], "fetchAll");
-            $count = count($exists);
+        $exists = $this->execute("SELECT gebruikersnaam, telefoonnummer FROM `gebruikers` WHERE `gebruikersnaam` = ?", [$gebruikersnaam], "fetch");
+        $count = (!$exists) ? 0 : count($exists);
+        echo '<xmp>Output $exists File: '.end(explode('/',__FILE__)).' Line '.__LINE__.': '. print_r( $exists, true ) .'</xmp>'; /*DEBUG:*/
 
-            # Indien gebruikersnaam al bestaat
-            if ($count >= 1 && !empty($count)) {
-                return "<script>Swal.fire({
-                    icon: 'error',
-                    title: 'Deze gebruikersnaam bestaat al!'
-                  }); return;</script>";
-                die();
-            } else {
-                # Anders lekker doorgaan
-                $this->execute($sql, [$email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum]);
-                return "<script>Swal.fire({
-                    icon: 'success',
-                    title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
-                  });</script>";
-            }
+        # Indien gebruikersnaam al bestaat
+        if ($count >= 1 && !empty($count)) {
+            return "<script>Swal.fire({
+                icon: 'error',
+                title: 'Deze gebruikersnaam bestaat al!'
+                }); return;</script>";
+            die();
+        } else {
+            # Anders lekker doorgaan
+            $this->execute($sql, [$email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum]);
+            return "<script>Swal.fire({
+                icon: 'success',
+                title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
+                });</script>";
         }
+
+        return "Done everything!";
     }
 
     /**

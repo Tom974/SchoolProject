@@ -128,15 +128,15 @@
                                         # Nieuwe user inserten
                                         if ($_POST['wachtwoord'] == $_POST['wachtwoord-bevestig']) {
                                             # tyfus debug.
-                                            echo $_POST['email'];
-                                            echo $_POST['gebruikersnaam'];
-                                            echo password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT);
-                                            echo $_POST['naam'];
-                                            echo $_POST['achternaam'];
-                                            echo $_POST['telefoonnummer'];
-                                            echo $_POST['bsn-nummer'];
-                                            echo $_POST['geboortedatum'];
-                                            $School->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
+                                            echo $_POST['email']."<br>";
+                                            echo $_POST['gebruikersnaam']."<br>";
+                                            echo password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT)."<br>";
+                                            echo $_POST['naam']."<br>";
+                                            echo $_POST['achternaam']."<br>";
+                                            echo $_POST['telefoonnummer']."<br>";
+                                            echo $_POST['bsn-nummer']."<br>";
+                                            echo $_POST['geboortedatum']."<br>";
+                                            echo $School->insertNewuser($_POST['email'], $_POST['gebruikersnaam'], password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT), $_POST['naam'], $_POST['achternaam'], $_POST['telefoonnummer'], $_POST['bsn-nummer'], $_POST['geboortedatum']);
                                     
                                         } else {
                                             echo "<script>nietGelijk();</script>";
