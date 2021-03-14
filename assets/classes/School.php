@@ -163,10 +163,8 @@ class School {
                 $this->execute($sql, [$email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum]);
                 return "<script>Swal.fire({
                     icon: 'success',
-                    title: 'Account is succesvol aangemaakt!'
-                  }); </script>";
-                # Persoon terugsturen naar de index waar die kan inloggen.
-                echo "<script>window.location.href='index.php';</script>";
+                    title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
+                  });</script>";
             }
         }
     }
