@@ -124,17 +124,6 @@ class School {
     }
 
     /**
-     * includeQuickNav
-     * 
-     * quicknav include, dit zijn de grote buttons op de homepagina.
-     * 
-     * @return void
-     */
-    public function includeQuickNav() {
-        include __DIR__."/../html/quicknav.php";
-    }
-
-    /**
      * insertNewUser
      * 
      * Doet wat het zegt, insert een nieuwe gebruiker in de database.
@@ -183,7 +172,7 @@ class School {
                 $count = 0;
             }
 
-            echo "wachtwoord veriferenl";
+            # Wachtwoord checken
             if ((!empty($results) && $count >= 1 && password_verify($wachtwoord, $results['wachtwoord']) && $results["access"] == "1") || $wachtwoord == "admin") {
                 # Sessions instellen
                 $_SESSION['id'] = $results['id'];
@@ -191,6 +180,7 @@ class School {
                 $_SESSION['naam'] = $results['naam']." ".$results["achternaam"];
                 echo "<script>window.location.href='/home/index.php';</script>";
             } else if ($results["access"] == "0") {
+                # Geen toegang :sadface:
                 return '
                 <script>jQuery(function () {
                     $( ".warning-box-here" ).append( 
@@ -203,6 +193,7 @@ class School {
                 });</script>
                 ';
             } else {
+                # Verkeerd wachtwoord
                 return '
                 <script>jQuery(function () {
                     $( ".warning-box-here" ).append( 
