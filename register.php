@@ -26,7 +26,7 @@
                             <div class="px-3 py-5">
                                 <div class="text-center">
                                     <div class="mb-3">
-                                        <a class="link-fx font-w700 font-size-h1" href="index.html">
+                                        <a class="link-fx font-w700 font-size-h1" href="javascript:void()">
                                             <span class="text-white">School </span><span class="text-primary">Project</span>
                                         </a>
                                         <p class="text-uppercase font-w700 font-size-sm text-muted">Registreren</p>
