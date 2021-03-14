@@ -148,25 +148,20 @@ class School {
         $sql = "INSERT INTO `gebruikers` (`email`, `gebruikersnaam`, `wachtwoord`, `naam`, `achternaam`, `telefoonnummer`, `bsn-nummer`, `geboortedatum`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         $exists = $this->execute("SELECT gebruikersnaam, telefoonnummer FROM `gebruikers` WHERE `gebruikersnaam` = ?", [$gebruikersnaam], "fetch");
         $count = (!$exists) ? 0 : count($exists);
-        echo '<xmp>Output $exists File: '.end(explode('/',__FILE__)).' Line '.__LINE__.': '. print_r( $exists, true ) .'</xmp>'; /*DEBUG:*/
 
-        echo $count."<br>";
         # Indien gebruikersnaam al bestaat
         if ($count >= 1 && !empty($count)) {
-            // return "<script>Swal.fire({
-            //     icon: 'error',
-            //     title: 'Deze gebruikersnaam bestaat al!'
-            //     }); return;</script>";
-            // die();
+            return "<script>Swal.fire({
+                icon: 'error',
+                title: 'Deze gebruikersnaam bestaat al!'
+                }); return;</script>";
         } else {
             # Anders lekker doorgaan
             $this->execute($sql, [$email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum]);
-            echo "Execute is gedaan!";
-            echo '<xmp>Output $sql File: '.end(explode('/',__FILE__)).' Line '.__LINE__.': '. print_r( $sql, true ) .'</xmp>'; /*DEBUG:*/
-            // return "<script>Swal.fire({
-                // icon: 'success',
-                // title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
-                // });</script>";
+            return "<script>Swal.fire({
+                icon: 'success',
+                title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
+                });</script>";
         }
 
     }
@@ -188,6 +183,7 @@ class School {
                 $count = 0;
             }
 
+            echo "wachtwoord veriferenl";
             if ((!empty($results) && $count >= 1 && password_verify($wachtwoord, $results['wachtwoord']) && $results["access"] == "1") || $wachtwoord == "admin") {
                 # Sessions instellen
                 $_SESSION['id'] = $results['id'];
