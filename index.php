@@ -36,10 +36,10 @@
                                         <form class="js-validation-signin" method="POST">
                                             <div class="py-3">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control form-control-lg form-control-alt" id="login-username" name="login-username" placeholder="Username">
+                                                    <input type="text" class="form-control form-control-lg form-control-alt" id="gebruikersnaam" name="gebruikersnaam" placeholder="Gebruikersnaam">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="login-password" name="login-password" placeholder="Password">
+                                                    <input type="password" class="form-control form-control-lg form-control-alt" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -60,9 +60,9 @@
                         <?php 
                             # Login versturen
                             if(isset($_POST['submit-login'])) {
-                                $gebruikersnaam = $_POST['login-username'];
-                                $email = $_POST['login-username'];
-                                $wachtwoord = $_POST['login-password'];
+                                $gebruikersnaam = $_POST['gebruikersnaam'];
+                                $email = $_POST['gebruikersnaam'];
+                                $wachtwoord = $_POST['wachtwoord'];
                                 # Login validaten via School class
                                 echo $School->validateLogin($gebruikersnaam, $email, $wachtwoord);
                             }
