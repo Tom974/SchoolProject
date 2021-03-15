@@ -7,7 +7,7 @@
         ini_set('display_errors', 1);
         # Session starten ivm inloggen.
         session_start();
-        require $_SERVER['DOCUMENT_ROOT']."/assets/classes/School.php";
+        require __DIR__."/../assets/classes/School.php";
         # gotta get that dem sweetalert script
         echo '<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
         $School = new School(); 

@@ -6,7 +6,7 @@
         ini_set('display_errors', 1);
         # Session starten
         session_start();
-        require $_SERVER['DOCUMENT_ROOT']."/assets/classes/School.php";
+        require __DIR__."/assets/classes/School.php";
         $School = new School(); 
         # Head met script en meta info includen
         $School->includeHead();
