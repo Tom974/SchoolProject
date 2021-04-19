@@ -1,6 +1,6 @@
 <?php
     # huts alles definen
-    $user = "tom";
-    $pass = "0659";
+    $user = "root";
+    $pass = "";
     $db = "school";
     $host = "localhost";

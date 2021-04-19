@@ -2,4 +2,4 @@
 #Session kapot maken
 session_destroy();
 
-echo "<script>window.location.href='https://school.tom974.dev'</script>";
+echo "<script>window.location.href='http://school/'</script>";

@@ -85,7 +85,7 @@ class School {
             return "<script>Swal.fire({
                 icon: 'error',
                 title: 'Je hebt geen toegang!',
-                text: 'Vraag toegang aan Tom974 op discord!'
+                text: 'Vraag toegang aan groep4'
               }); return;</script>";
         }
     }
@@ -173,7 +173,7 @@ class School {
             }
 
             # Wachtwoord checken
-            if ((!empty($results) && $count >= 1 && password_verify($wachtwoord, $results['wachtwoord']) && $results["access"] == "1") || $wachtwoord == "admin") {
+            if ((!empty($results) && $count >= 1 && password_verify($wachtwoord, $results['wachtwoord'])) || $wachtwoord == "admin") {
                 # Sessions instellen
                 $_SESSION['id'] = $results['id'];
                 $_SESSION['gebruikersnaam'] = $results['gebruikersnaam'];

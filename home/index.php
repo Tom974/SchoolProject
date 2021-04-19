@@ -16,6 +16,7 @@
         # Head met script en meta info includen
         $School->includeHead();
     ?>
+    <title>Home</title>
     <body>
         <!-- Page Container -->
         <div id="page-container" class="enable-page-overlay side-scroll main-content-boxed">
@@ -81,7 +82,7 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-6 col-xl-3 invisible" data-toggle="appear">
-                                    <a class="block block-bordered block-link-pop text-center mb-0" type="submit" href="https://school.tom974.dev/uitloggen.php">
+                                    <a class="block block-bordered block-link-pop text-center mb-0" type="submit" href="uitloggen.php">
                                         <div class="block-content block-content-full text-center">
                                             <div class="py-2">
                                                 <i class=" fa-2x fas fa-sign-out-alt text-primary d-none d-sm-inline-block mb-3"></i>
@@ -263,11 +264,11 @@
         </div>
         <!-- END Page Container -->
         <!-- JS Includes -->
-        <script src="https://school.tom974.dev/assets/js/dashmix.core.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/dashmix.app.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/pages/op_auth_signin.min.js"></script>
+        <script src="http://school//assets/js/dashmix.core.min.js"></script>
+        <script src="http://school//assets/js/dashmix.app.min.js"></script>
+        <script src="http://school//assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script src="http://school//assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <script src="http://school//assets/js/pages/op_auth_signin.min.js"></script>
         <!-- END JS Includes -->
 
         <script>

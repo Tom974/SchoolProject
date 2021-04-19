@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
     <?php
-        # Zorgen dat we alle errors zien
+        # Zorgen dat we alle errors zien    
         error_reporting(E_ALL & ~E_NOTICE);
         ini_set('display_errors', 1);
         # Session starten ivm logins.
@@ -12,6 +12,7 @@
         # Head met script en meta info includen
         $School->includeHead();
     ?>
+    <title>Inloggen</title>
     <body>
         <!-- Page Container -->
         <div id="page-container">
@@ -25,6 +26,9 @@
                                 <div class="warning-box-here"></div>
                                 <!-- Header -->    
                                 <div class="mb-3 text-center">
+                                        <strong>Gebruikersnaam: admin</strong><br>
+                                        <strong>Wachtwoord: admin</strong><br>
+                                        <strong>Of maak gewoon een account aan :)</strong><br>
                                     <a class="link-fx font-w700 font-size-h1">
                                         <span class="text-dark">School </span><span class="text-primary">Project</span>
                                     </a>   
@@ -49,6 +53,9 @@
                                                 <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
                                                     <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="register.php">
                                                         <i class="fa fa-plus text-muted mr-1"></i> Account Aanmaken
+                                                    </a>
+                                                    <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="http://bassist.world:8080/bouw-electro-ict-zorg/groep4">
+                                                        <i class="fa text-muted mr-1"></i>Homepagina
                                                     </a>
                                                 </p>
                                             </div>
@@ -77,11 +84,11 @@
         </div>
         <!-- END Page Container -->
         <!-- Page JS Plugins -->
-        <script src="https://school.tom974.dev/assets/js/dashmix.core.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/dashmix.app.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/pages/op_auth_signin.min.js"></script>
+        <script src="http://school//assets/js/dashmix.core.min.js"></script>
+        <script src="http://school//assets/js/dashmix.app.min.js"></script>
+        <script src="http://school//assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script src="http://school//assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <script src="http://school//assets/js/pages/op_auth_signin.min.js"></script>
         <!-- END Page JS Code -->
     </body>
 </html>

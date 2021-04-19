@@ -11,6 +11,7 @@
         # Head met script en meta info includen
         $School->includeHead();
     ?>
+    <title>Registreren</title>
     <body>
         <!-- Include SweetAlert -->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -169,11 +170,11 @@
         </script>
         <!-- END Page Container -->
         <!-- Page JS Plugins -->
-        <script src="https://school.tom974.dev/assets/js/dashmix.core.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/dashmix.app.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
-        <script src="https://school.tom974.dev/assets/js/pages/op_auth_signin.min.js"></script>
+        <script src="http://school//assets/js/dashmix.core.min.js"></script>
+        <script src="http://school//assets/js/dashmix.app.min.js"></script>
+        <script src="http://school//assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script src="http://school//assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <script src="http://school//assets/js/pages/op_auth_signin.min.js"></script>
         <!-- END Page JS Code -->
     </body>
 </html>
