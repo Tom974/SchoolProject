@@ -1,10 +1,12 @@
+
+
+
+
+
 <!-- Ik ben ontzettend slecht in HTML, vandaar deze template :) Ik doe liever back-end. -->
 <!doctype html>
 <html lang="en">
     <?php
-        # Zorgen dat we alle errors zien    
-        error_reporting(E_ALL & ~E_NOTICE);
-        ini_set('display_errors', 1);
         # Session starten ivm logins.
         session_start();
         require __DIR__."/assets/classes/School.php";
@@ -51,11 +53,8 @@
                                                     <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Log In
                                                 </button>
                                                 <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
-                                                    <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="register.php">
+                                                    <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="http://school/register.php">
                                                         <i class="fa fa-plus text-muted mr-1"></i> Account Aanmaken
-                                                    </a>
-                                                    <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="http://bassist.world:8080/bouw-electro-ict-zorg/groep4">
-                                                        <i class="fa text-muted mr-1"></i>Homepagina
                                                     </a>
                                                 </p>
                                             </div>
@@ -72,6 +71,8 @@
                                 $wachtwoord = $_POST['wachtwoord'];
                                 # Login validaten via School class
                                 echo $School->validateLogin($gebruikersnaam, $email, $wachtwoord);
+                                $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
+                                $_SESSION['naam'] = $_POST['gebruikersnaam'];
                             }
                             # Footer includen
                             $School->includeFooter();

@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="en">
     <?php
-        # Zorgen dat we errors zien wantja devmode
-        error_reporting(E_ALL & ~E_NOTICE);
-        ini_set('display_errors', 1);
         # Session starten
         session_start();
         require __DIR__."/assets/classes/School.php";
@@ -13,14 +10,8 @@
     ?>
     <title>Registreren</title>
     <body>
-        <!-- Include SweetAlert -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <!-- Page Container -->
         <div id="page-container">
-            <!-- Main Container -->
             <main id="main-container">
-
-                <!-- Register Form -->
                 <div class="bg-image" style="background-image: url('https://tekenhuis.nl/wp-content/uploads/2017/02/1920x1200Medium_3.jpg');">
                     <div class="hero-static bg-black-75">
                         <div class="content content-full">
@@ -37,7 +28,6 @@
                                     <div class="col-xl-8">
                                         <form class="js-validation-installation" method="POST">
                                             <div class="block block-rounded block-transparent bg-white">
-                                                <!-- Account Aanmaken -->
                                                 <div class="block-content block-content-full">
                                                     <h2 class="content-heading">Account Aanmaken</h2>
                                                     <div class="row items-push">
@@ -120,8 +110,6 @@
                                         </form>
                                     </div>
                                 </div>
-                                <!-- END Register Form -->
-                                <!-- Start register PHP -->
                                 <?php
                                     if (isset($_POST['opslaan'])) {
                                         # Database definen
@@ -135,7 +123,6 @@
                                         }
                                     }
                                 ?>
-                                <!-- End register PHP -->
                                 <div class="text-center">
                                     <a class="btn btn-sm btn-dark" href="index.php">
                                         <i class="fa fa-arrow-left mr-1"></i> Ga Terug
@@ -145,11 +132,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- END Page Content -->
             </main>
-            <!-- END Main Container -->
         </div>
-        <!-- Nog een klein stukkie js -->
         <script>
             function nietGelijk() {
                 Swal.fire(

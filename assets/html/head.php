@@ -6,7 +6,7 @@
     <meta name="author" content="Groep4">
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- Open Graph Meta -->
+    <!-- Meta Properties -->
     <meta property="og:title" content="School Project">
     <meta property="og:site_name" content="School Project">
     <meta property="og:description" content="Website gemaakt voor een school project.">
@@ -33,7 +33,19 @@
     <link rel="stylesheet" href="http://school/assets/js/plugins/flatpickr/flatpickr.min.css">
 
     <link rel="stylesheet" href="http://school/assets/js/plugins/datatables/dataTables.bootstrap4.css">
-        <link rel="stylesheet" href="http://school/assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="http://school/assets/js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css">
 
     
 </head>
+
+<!-- Enge script in de head iknowiknow -->
+<script>
+    // Functie definen voor sweetalert.
+    function unknown() {
+        Swal.fire(
+            'Unknown',
+            'Deze button werkt alleen (nog) niet ;)',
+            'question'
+        );
+    }
+</script>

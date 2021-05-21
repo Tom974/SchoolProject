@@ -30,7 +30,7 @@
                 <div class="content">
                     <div class="block block-rounded">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Alle Afspraken</h3>
+                            <h3 class="block-title">Alle Contacten</h3>
                         </div>
                         <div class="block-content block-content-full">
                             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
@@ -38,43 +38,28 @@
                                     <tr>
                                         <th class="text-center" style="width: 70px;">#</th>
                                         <th>Naam</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Achternaam</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 25%;">Email</th>
-                                        <th style="width: 5%;">Leeftijd</th>
-                                        <th style="width: 10%;">Afspraak</th>
-                                        <th style="width: 15%;">Datum & Tijd</th>
+                                        <th class="d-none d-sm-table-cell" >Achternaam</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                        # alle afspraken ophalen en weergeven
-                                        $afspraken = $School->execute('SELECT * FROM `afspraken` ORDER BY ID DESC', [], 'fetchAll');
-                                        foreach($afspraken as $afspraak) {
-                                            echo '                                   
-                                            <tr>
-                                                <td class="text-center">'.$afspraak['id'].'</td>
-                                                <td class="font-w600">
-                                                    <a class="text-muted">'.$afspraak['naam'].'</a>
-                                                </td>
-                                                <td class="d-none d-sm-table-cell">
-                                                    <a class="text-muted">'.$afspraak['achternaam'].'</a>
-                                                </td>
-                                                <td class="d-none d-sm-table-cell">
-                                                    <a>'.$afspraak['email'].'</a>
-                                                </td>
-                                                <td>
-                                                    <a>'.$afspraak['leeftijd'].'</a>
-                                                </td>
-                                                <td>
-                                                    <a>'.$afspraak['afspraak_type'].'</a>
-                                                </td>
-                                                <td>
-                                                    <a>'.$afspraak['datum'].'</a>
-                                                </td>
-                                            <tr>';
-                                        }
-                                    ?>
+                                <?php
 
+                                $contacten = $School->execute("SELECT * FROM `contacten` ORDER BY ID DESC", [], 'fetchAll');
+                                foreach($contacten as $contact) {
+                                    echo '                                    
+                                    <tr>
+                                        <td class="text-center">
+                                            '.$contact['id'].'
+                                        </td>
+                                        <td class="font-w600">
+                                            <a class="text-muted">'.$contact['naam'].'</a>
+                                        </td>
+                                        <td class="d-none d-sm-table-cell">
+                                            <a class="text-muted">'.$contact['achternaam'].'</a>
+                                        </td>
+                                    </tr>';
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -95,7 +80,7 @@
         <script src="http://school/assets/js/plugins/datatables/buttons/buttons.flash.min.js"></script>
         <script src="http://school/assets/js/plugins/datatables/buttons/buttons.colVis.min.js"></script>
         <script src="http://school/assets/js/pages/be_tables_datatables.min.js"></script>
-        <!-- Page JS Helpers -->
+        <!-- Page JS helpers includen -->
         <script>jQuery(function(){Dashmix.helpers('sparkline');});</script>
     </body>
 </html>

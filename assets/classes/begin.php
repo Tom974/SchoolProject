@@ -4,3 +4,4 @@
     $pass = "";
     $db = "school";
     $host = "localhost";
+?>

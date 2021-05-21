@@ -2,14 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-        # Zorgen dat ik alle errors zie, wantja dev mode huh.
-        error_reporting(E_ALL & ~E_NOTICE);
-        ini_set('display_errors', 1);
         # Session starten ivm inloggen.
         session_start();
         require __DIR__."/../assets/classes/School.php";
-        # gotta get that dem sweetalert script
-        echo '<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
         $School = new School(); 
         # Controle of we al ingelogd zijn
         $login = $School->checkIfLoggedIn();
@@ -18,35 +13,21 @@
     ?>
     <title>Home</title>
     <body>
-        <!-- Page Container -->
         <div id="page-container" class="enable-page-overlay side-scroll main-content-boxed">
             <!-- Zorgen dat de header geinclude wordt. -->
             <?= $School->includeHeader() ?>
             <!-- Main Container -->
             <main id="main-container">
-                <!-- Hero -->
                 <div class="bg-body-light border-top border-bottom">
                     <div class="content content-full py-1">
                         <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                             <h1 class="flex-sm-fill font-size-sm text-uppercase font-w700 mt-2 mb-0 mb-sm-2">
-                                <i class="fa fa-angle-right fa-fw text-primary"></i> Gebruiker
+                                <i class="fa fa-angle-right fa-fw text-primary"></i> Welkom, <?= $_SESSION['naam'] ?>
                             </h1>
                         </div>
                     </div>
                 </div>
-                <!-- END Hero -->
-                <!-- Page Content -->
-                <script>
-                    //  Functie definen voor sweetalert.
-                    function unknown() {
-                        Swal.fire(
-                            'Unknown',
-                            'Deze button werkt alleen (nog) niet ;)',
-                            'question'
-                        );
-                    }
-                </script>
-                <!-- Het is mij super onduidelijk wat ze van mij verwachten met de website, dus heb ik alles maar hardcoded erin gezet ipv met een database alles ophalen wantja het gaat om het uiterlijk nu. -->
+                <!-- Content -->
                 <div class="content">
                     <div class="block block-bordered js-classic-nav d-none d-sm-block">
                         <div class="block-content block-content-full">
@@ -252,24 +233,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- END Page Content -->
             </main>
-            <!-- END Main Container -->
-            <!-- Footer -->  
             <?php
                 # Zorgen dat de footer gezien kan worden
                 $School->includeFooter(); 
             ?>
-            <!-- END Footer -->
         </div>
         <!-- END Page Container -->
-        <!-- JS Includes -->
         <script src="http://school//assets/js/dashmix.core.min.js"></script>
         <script src="http://school//assets/js/dashmix.app.min.js"></script>
         <script src="http://school//assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
         <script src="http://school//assets/js/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
         <script src="http://school//assets/js/pages/op_auth_signin.min.js"></script>
-        <!-- END JS Includes -->
 
         <script>
             // Zorgen dat form submits niet opnieuw gebeuren indien je refreshed. Niet dat er nu al een form inzit ofzo maarja altijd handig.

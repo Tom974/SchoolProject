@@ -27,7 +27,10 @@
                             <i class="far fa-fw fa-file-alt mr-1"></i> Afspraken Inzien
                         </a>
                         <a class="dropdown-item" href="http://school/gebruikers">
-                            <i class="far fa-fw fa-file-alt mr-1"></i> Gebruikers
+                            <i class="far fa-fw fa-file-alt mr-1"></i> Gebruikers Inzien
+                        </a>
+                        <a class="dropdown-item" href="http://school/contacten">
+                            <i class="far fa-fw fa-file-alt mr-1"></i> Contacten Inzien
                         </a>
                         <div role="separator" class="dropdown-divider"></div>
                         <a class="dropdown-item" href="http://school/uitloggen.php">

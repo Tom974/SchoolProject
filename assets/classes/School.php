@@ -46,6 +46,25 @@ class School {
     }
 
     /**
+     * insertNewAfspraak
+     * 
+     * Nieuwe afpsraak toevoegen.
+     * 
+     * @return script | javascript sweetalert met een success knop!
+     */
+    public function insertNewAfspraak($email, $naam, $achternaam, $leeftijd, $afspraak_type, $datum) {
+        # Query aanmaken
+        $sql = "INSERT INTO `afspraken` (`email`, `naam`, `achternaam`, `leeftijd`, `afspraak_type`, `datum`) VALUES (?, ?, ?, ?, ?, ?);";
+        
+        # Anders lekker doorgaan
+        $this->execute($sql, [$email, $naam, $achternaam, $leeftijd, $afspraak_type, $datum]);
+        return "<script>Swal.fire({
+            icon: 'success',
+            title: 'De afspraak is succesvol ingepland!'
+            });</script>";
+    }
+
+    /**
      * checkIfLoggedIn
      * 
      * Checkt of je ingelogd bent. quite simple right.
@@ -64,11 +83,57 @@ class School {
                 "naam" => $naam
             );
         } else {
-            return "<script>window.location.href='/index.php';</script>";
+            $this->display_message('warning', 'Je bent niet ingelogd! Log eerst in!', true);
         }
     }
 
-    /**
+    public function display_message($code, $bericht, $sendhome = false) {
+        switch($code) {
+            case 'success':
+                return "<script>
+                    setTimeout(function() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Gelukt!',
+                            text: '$bericht'
+                            }, function() {
+                                ".($sendhome) ? 'window.location.href="/index.php"' : "" ."
+                            });
+                    }, 3000);
+                </script>";
+                break;
+
+            case 'failure':
+                return "<script>
+                    setTimeout(function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error:',
+                            text: '$bericht'
+                            }, function() {
+                                ".($sendhome) ? 'window.location.href="/index.php"' : "" ."
+                        });
+                    }, 3000);
+                  </script>";
+                break;
+
+            case 'warning':
+                return "<script>
+                    setTimeout(function() {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'waarschuwing:',
+                            text: '$bericht'
+                            }, function() {
+                                ".($sendhome) ? 'window.location.href="/index.php"' : "" ."
+                        });
+                    }, 3000);
+                </script>";
+                break;
+        }
+    }
+
+    /** 
      * checkAccess
      * 
      * Doet wat het zegt, checkt of je access hebt naar de specifieke pagina.
