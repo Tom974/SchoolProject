@@ -1,5 +1,4 @@
-<!-- Ik ben ontzettend slecht in HTML, vandaar deze template :) Ik doe liever back-end. -->
-<!DOCTYPE html>
+
 <html lang="en">
     <?php
         # Session starten ivm inloggen.

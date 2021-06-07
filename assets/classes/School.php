@@ -200,11 +200,12 @@ class School {
     public function insertNewUser($email, $gebruikersnaam, $wachtwoord, $naam, $achternaam, $telefoonnummer, $bsn, $geboortedatum){
         # Query aanmaken
         $sql = "INSERT INTO `gebruikers` (`email`, `gebruikersnaam`, `wachtwoord`, `naam`, `achternaam`, `telefoonnummer`, `bsn-nummer`, `geboortedatum`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-        $exists = $this->execute("SELECT gebruikersnaam, telefoonnummer FROM `gebruikers` WHERE `gebruikersnaam` = ?", [$gebruikersnaam], "fetch");
-        $count = (!$exists) ? 0 : count($exists);
 
+        # Kijken of de user al bestaat.
+        $user_exists = $this->checkIfUserExists($gebruikersnaam);
+        
         # Indien gebruikersnaam al bestaat
-        if ($count >= 1 && !empty($count)) {
+        if ($user_exists) {
             return "<script>Swal.fire({
                 icon: 'error',
                 title: 'Deze gebruikersnaam bestaat al!'
@@ -216,6 +217,26 @@ class School {
                 icon: 'success',
                 title: 'Account is succesvol aangemaakt, u kunt nu inloggen op de inlogpagina.'
                 });</script>";
+        }
+
+    }
+
+
+    /**
+     * checkIfUserExists
+     * 
+     * Checkt of de gebruiker al bestaat en returned true of false.
+     * 
+     * @param string $gebruikersnaam | gebruikersnaam van de user die je wilt checken
+     */
+    public function checkIfUserExists($gebruikersnaam) {
+        $exists = $this->execute("SELECT gebruikersnaam, telefoonnummer FROM `gebruikers` WHERE `gebruikersnaam` = ?", [$gebruikersnaam], "fetch");
+        $count = (!$exists) ? 0 : count($exists);
+
+        if ($count >= 1 && !empty($count)) {
+            return true;
+        } else {
+            return false;
         }
 
     }

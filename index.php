@@ -3,8 +3,7 @@
 
 
 
-<!-- Ik ben ontzettend slecht in HTML, vandaar deze template :) Ik doe liever back-end. -->
-<!doctype html>
+
 <html lang="en">
     <?php
         # Session starten ivm logins.

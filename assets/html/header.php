@@ -2,7 +2,7 @@
     <div class="content-header">
         <div>
             <button type="button" class="btn btn-dual" data-toggle="layout" data-action="header_search_on">
-                <i class="fa fa-fw fa-search"></i> <span class="ml-1 d-none d-sm-inline-block">Zoeken</span>
+                <i class="fa fa-fw fa-search"></i> <span class="ml-1 d-none d-sm-inline-block">Contacten Zoeken</span>
             </button>
         </div>
         <div>
@@ -29,7 +29,7 @@
                         <a class="dropdown-item" href="http://school/gebruikers">
                             <i class="far fa-fw fa-file-alt mr-1"></i> Gebruikers Inzien
                         </a>
-                        <a class="dropdown-item" href="http://school/contacten">
+                        <a class="dropdown-item" href="http://school/datatable">
                             <i class="far fa-fw fa-file-alt mr-1"></i> Contacten Inzien
                         </a>
                         <div role="separator" class="dropdown-divider"></div>
@@ -44,8 +44,8 @@
     <div id="page-header-search" class="overlay-header bg-header-dark">
         <div class="bg-white-10">
             <div class="content-header">
-                <form class="w-100" action="index.php" method="POST">
-                    <div class="input-group">
+                <form class="w-100" id="formsearchbox">
+                    <div class="input-group search-box">
                         <div class="input-group-prepend">
                             <button type="button" class="btn btn-alt-primary" data-toggle="layout" data-action="header_search_off">
                                 <i class="fa fa-fw fa-times-circle"></i>
@@ -63,7 +63,40 @@
                 <div class="w-100 text-center">
                     <i class="fa fa-fw fa-sun fa-spin text-white"></i>
                 </div>
+                </div>
             </div>
-        </div>
     </div>
 </header>
+<script>
+$("#formsearchbox").keypress(function (event) {
+    if (event.keyCode == 13) {
+        var inputVal = $('#page-header-search-input').val();
+        event.preventDefault();
+        jQuery(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://school/zoeken/search.php",
+                data: "search="+inputVal,
+                success: function(msg) {
+                    console.log(msg);
+                    $('.modal-body').html(msg);
+                    $('#searchmodal').modal('show');
+                }
+            });
+        });   
+    }
+});
+    
+</script>
+    <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog" aria-labelledby="searchmodal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+          <h3>Zoekresultaten</h3>
+            <button data-toggle="layout" data-action="header_search_off" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
